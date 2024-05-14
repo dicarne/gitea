@@ -22,11 +22,12 @@ func TestMinioStorageIterator(t *testing.T) {
 	}
 	testStorageIterator(t, setting.MinioStorageType, &setting.Storage{
 		MinioConfig: setting.MinioStorageConfig{
-			Endpoint:        "127.0.0.1:9000",
-			AccessKeyID:     "123456",
-			SecretAccessKey: "12345678",
-			Bucket:          "gitea",
-			Location:        "us-east-1",
+			Endpoint:         "127.0.0.1:9000",
+			AccessKeyID:      "123456",
+			SecretAccessKey:  "12345678",
+			Bucket:           "gitea",
+			Location:         "us-east-1",
+			BucketLookUpType: "auto",
 		},
 	})
 }
@@ -72,11 +73,12 @@ func TestS3StorageBadRequest(t *testing.T) {
 	}
 	cfg := &setting.Storage{
 		MinioConfig: setting.MinioStorageConfig{
-			Endpoint:        "minio:9000",
-			AccessKeyID:     "123456",
-			SecretAccessKey: "12345678",
-			Bucket:          "bucket",
-			Location:        "us-east-1",
+			Endpoint:         "minio:9000",
+			AccessKeyID:      "123456",
+			SecretAccessKey:  "12345678",
+			Bucket:           "bucket",
+			Location:         "us-east-1",
+			BucketLookUpType: "auto",
 		},
 	}
 	message := "ERROR"
