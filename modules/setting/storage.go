@@ -270,8 +270,10 @@ func getStorageForMinio(targetSec, overrideSec ConfigSection, tp targetSecType, 
 		storage.MinioConfig.ServeDirect = ConfigSectionKeyBool(overrideSec, "SERVE_DIRECT", storage.MinioConfig.ServeDirect)
 		storage.MinioConfig.BasePath = ConfigSectionKeyString(overrideSec, "MINIO_BASE_PATH", defaultPath)
 		storage.MinioConfig.Bucket = ConfigSectionKeyString(overrideSec, "MINIO_BUCKET", storage.MinioConfig.Bucket)
+		storage.MinioConfig.BucketLookUpType = ConfigSectionKeyString(overrideSec, "MINIO_BUCKET_LOOKUP_TYPE", "auto")
 	} else {
 		storage.MinioConfig.BasePath = defaultPath
+		storage.MinioConfig.BucketLookUpType = "auto"
 	}
 	return &storage, nil
 }
